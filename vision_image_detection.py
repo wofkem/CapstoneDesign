@@ -71,6 +71,7 @@ def showimage():
         for cnt in contours:
             x,y,w,h = cv2.boundingRect(cnt)
             cv2.rectangle(copy_image,(x,y),(x+w,y+h),(200,0,0),2)
+            cv2.circle(copy_image,((x+x+w)//2,(y+y+h)//2),1,(200,0,0),2)
             idx +=1
 
         cv2.imshow('dst',dst)

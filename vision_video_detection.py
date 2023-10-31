@@ -36,7 +36,7 @@ def showimage():
     frame_counter = 0
     while True:
         ret, frame = video.read()
-        frame = cv2.resize(frame,dsize=(600,400))
+        frame = cv2.resize(frame,dsize=(640,480))
         frame_counter += 1
         #If the last frame is reached, reset the capture and the frame_counter
         if frame_counter == video.get(cv2.CAP_PROP_FRAME_COUNT):
@@ -76,6 +76,7 @@ def showimage():
         for cnt in contours:
             x,y,w,h = cv2.boundingRect(cnt)
             cv2.rectangle(copy_video,(x,y),(x+w,y+h),(200,0,0),2)
+            cv2.circle(copy_video,((x+x+w)//2,(y+y+h)//2),1,(200,0,0),2)
             idx +=1
         
         cv2.imshow('G',G)
